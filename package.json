@@ -7,9 +7,16 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
+    "@huggingface/inference": "^2.6.1",
+    "@types/file-saver": "^2.0.5",
     "@types/node": "^20.4.5",
+    "dotenv": "^16.3.1",
     "eslint": "^8.46.0",
-    "nodemon": "^3.0.1",
+    "file-saver": "^2.0.5",
+    "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
+  },
+  "scripts": {
+    "scripts:inference": "ts-node --require dotenv/config ./scripts/inference.ts"
   }
 }
