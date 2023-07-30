@@ -1,10 +1,12 @@
 import { HfInference } from "@huggingface/inference";
 import { HF_ACCESS_TOKEN } from "../constants";
-import { saveAs } from "file-saver";
-import path from "path";
 
 const hf = new HfInference(HF_ACCESS_TOKEN);
 
+/**
+ * A range of model interactions as per example docs in the HuggingFace Inference API
+ * @see https://huggingface.co/docs/huggingface.js/inference/README
+ */
 const main = async () => {
   const response = await hf.fillMask({
     model: "bert-base-uncased",
@@ -18,8 +20,8 @@ const main = async () => {
     inputs:
       "The tower is 324 metres (1,063 ft) tall, about the same height as an 81-storey building, and the tallest structure in Paris. Its base is square, measuring 125 metres (410 ft) on each side. During its construction, the Eiffel Tower surpassed the Washington Monument to become the tallest man-made structure in the world, a title it held for 41 years until the Chrysler Building in New York City was finished in 1930.",
     parameters: {
-      min_length: 20,
-      max_length: 20,
+      min_length: 10,
+      max_length: 30,
     },
   });
 
